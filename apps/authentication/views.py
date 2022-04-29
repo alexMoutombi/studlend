@@ -22,14 +22,13 @@ def login_view(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect("/")
+                return redirect("/profile.html")
             else:
                 msg = 'Invalid credentials'
         else:
             msg = 'Error validating the form'
 
     return render(request, "accounts/login.html", {"form": form, "msg": msg})
-
 
 def register_user(request):
     msg = None
@@ -39,6 +38,7 @@ def register_user(request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             form.save()
+            profile = form.cleaned_data.get("profile")
             username = form.cleaned_data.get("username")
             raw_password = form.cleaned_data.get("password1")
             user = authenticate(username=username, password=raw_password)

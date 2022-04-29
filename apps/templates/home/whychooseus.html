@@ -1,10 +1,105 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "layouts/base.html" %}
 
-</body>
-</html>
+{% block title %} Template Page {% endblock %}
+
+{% block body_class %} index-page {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+{% include 'includes/navigation-transparent.html' %}
+
+<div class="page-header min-vh-80"
+     style="background-image: url('https://c8.alamy.com/comp/2CA4FY2/why-choose-us-in-splashs-background-2CA4FY2.jpg')">
+    <span class="mask bg-gradient-dark opacity-6"></span>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <div class="text-center">
+                    <h1 class="text-white">WHAT MAKES US THE BEST CHOICE</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
+    <div class="container">
+        <div class="section text-center">
+            <h2 class="title">Top Reasons</h2>
+            <section class="my-5 py-5">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-4 ms-auto me-auto p-lg-4 mt-lg-0 mt-4">
+                            <div class="rotating-card-container">
+                                <div class="card card-rotate card-background card-background-mask-primary shadow-primary mt-md-0 mt-5">
+                                    <div class="front front-background"
+                                         style="background-image: url('https://images.unsplash.com/photo-1569683795645-b62e50fbf103?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80'); background-size: cover;">
+                                        <div class="card-body py-7 text-center">
+                                            <i class="material-icons text-white text-4xl my-3">touch_app</i>
+                                            <h3 class="text-white">Feel the <br/> StudLend</h3>
+                                            <p class="text-white opacity-8">We are there for you. We’ve Got Your
+                                                Back.</p>
+                                        </div>
+                                    </div>
+                                    <div class="back back-background"
+                                         style="background-image: url(https://images.unsplash.com/photo-1498889444388-e67ea62c464b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1365&q=80); background-size: cover;">
+                                        <div class="card-body pt-7 text-center">
+                                            <h3 class="text-white">Discover More</h3>
+                                            <p class="text-white opacity-8"> You just need to trust us.</p>
+                                            <a href="/loan.html" class="btn btn-white btn-sm w-50 mx-auto mt-3">Get a
+                                                Loan</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 ms-auto">
+                            <div class="row justify-content-start">
+                                <div class="col-md-6">
+                                    <div class="info">
+                                        <i class="material-icons text-gradient text-primary text-3xl">scale</i>
+                                        <h5 class="font-weight-bolder mt-3">EASY LOAN COMPARISON TOOLS</h5>
+                                        <p class="pe-5 text-justify">All loans are allocated without any discrimination
+                                            between the different borrowers. With us you are all equal!
+                                            Our clients never feel alone and we commit ourselves to provide the best
+                                            service in the industry, and our clients feel the difference.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="info">
+                                        <i class="material-icons text-gradient text-primary text-3xl">euro_symbol</i>
+                                        <h5 class="font-weight-bolder mt-3">EXPERIENCED FINANCIAL ADVISORS</h5>
+                                        <p class="pe-3 text-justify">We work tirelessly around the clock, doing all the
+                                            legwork to ensure our clients are getting the best service in the industry.
+                                            The student loan industry is not simple, which is why we work hard to stay
+                                            up to date with the latest developments in the industry.
+                                            Years of experience have taught us that risk prevention is the name of the
+                                            game.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row justify-content-start mt-5">
+                                <div class="col-md-6 mt-3">
+                                    <i class="material-icons text-gradient text-primary text-3xl">query_builder</i>
+                                    <h5 class="font-weight-bolder mt-3">FAST AND EASY</h5>
+                                    <p class="pe-5 text-justify">The interactive system we have built allows us to be
+                                        efficient and fast and to respond to your needs in an effective way..
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

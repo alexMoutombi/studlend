@@ -7,7 +7,6 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
-
 class LoginForm(forms.Form):
     username = forms.CharField(
         widget=forms.TextInput(
@@ -24,8 +23,17 @@ class LoginForm(forms.Form):
             }
         ))
 
-
 class SignUpForm(UserCreationForm):
+    PROFILE_CHOICES = [
+        ('STUDENT', 'Student'),
+        ('INVESTOR', 'Investor'),
+    ]
+    profile = forms.ChoiceField(
+        required=True,
+        # widget=forms.CheckboxSelectMultiple,
+        #     required=True,
+        choices=PROFILE_CHOICES,
+        )
     username = forms.CharField(
         widget=forms.TextInput(
             attrs={
