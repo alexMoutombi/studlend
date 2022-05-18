@@ -42,7 +42,8 @@
 {% include 'includes/navigation.html' %}
 
 <header class="header-2">
-    <div class="page-header min-vh-75 relative" style="background-image: url('https://cdn.corporatefinanceinstitute.com/assets/Loans-1.jpeg')">
+    <div class="page-header min-vh-75 relative"
+         style="background-image: url('https://cdn.corporatefinanceinstitute.com/assets/Loans-1.jpeg')">
         <span class="mask bg-gradient-primary opacity-4"></span>
         <div class="container">
             <div class="row">
@@ -90,7 +91,7 @@
         </div>
     </section>
     <section class="my-5 py-5">
-            <div class="container">
+        <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-4 ms-auto me-auto p-lg-4 mt-lg-0 mt-4">
                     <div class="rotating-card-container">
@@ -108,7 +109,8 @@
                                 <div class="card-body pt-7 text-center">
                                     <h3 class="text-white">Discover More</h3>
                                     <p class="text-white opacity-8"> You just need to trust us.</p>
-                                    <a href="{% url 'login' %}" class="btn btn-white btn-sm w-50 mx-auto mt-3">Get a Loan</a>
+                                    <a href="{% url 'login' %}" class="btn btn-white btn-sm w-50 mx-auto mt-3">Get a
+                                        Loan</a>
                                 </div>
                             </div>
                         </div>
@@ -120,8 +122,10 @@
                             <div class="info">
                                 <i class="material-icons green-color text-gradient text-primary text-3xl">scale</i>
                                 <h5 class="font-weight-bolder mt-3 ">EASY LOAN COMPARISON TOOLS</h5>
-                                <p class="pe-5 text-justify">All loans are allocated without any discrimination between the different borrowers. With us you are all equal!
-                                    Our clients never feel alone and we commit ourselves to  provide the best service in the industry, and our clients feel the difference.
+                                <p class="pe-5 text-justify">All loans are allocated without any discrimination between
+                                    the different borrowers. With us you are all equal!
+                                    Our clients never feel alone and we commit ourselves to provide the best service in
+                                    the industry, and our clients feel the difference.
                                 </p>
                             </div>
                         </div>
@@ -129,8 +133,10 @@
                             <div class="info">
                                 <i class="material-icons text-gradient text-primary text-3xl">euro_symbol</i>
                                 <h5 class="font-weight-bolder mt-3">EXPERIENCED FINANCIAL ADVISORS</h5>
-                                <p class="pe-3 text-justify">We work tirelessly around the clock, doing all the legwork to ensure our clients are getting the best service in the industry.
-                                    The student loan industry is not simple, which is why we work hard to stay up to date with the latest developments in the industry.
+                                <p class="pe-3 text-justify">We work tirelessly around the clock, doing all the legwork
+                                    to ensure our clients are getting the best service in the industry.
+                                    The student loan industry is not simple, which is why we work hard to stay up to
+                                    date with the latest developments in the industry.
                                     Years of experience have taught us that risk prevention is the name of the game.
                                 </p>
                             </div>
@@ -140,22 +146,23 @@
                         <div class="col-md-6 mt-3">
                             <i class="material-icons text-gradient text-primary text-3xl">query_builder</i>
                             <h5 class="font-weight-bolder mt-3">FAST AND EASY</h5>
-                            <p class="pe-5 text-justify">The interactive system we have built allows us to be efficient and fast and to respond to your needs in an effective way..
+                            <p class="pe-5 text-justify">The interactive system we have built allows us to be efficient
+                                and fast and to respond to your needs in an effective way..
                             </p>
                         </div>
-<!--                        <div class="col-md-6 mt-3">-->
-<!--                            <div class="info">-->
-<!--                                <i class="material-icons text-gradient text-primary text-3xl">devices</i>-->
-<!--                                <h5 class="font-weight-bolder mt-3">Fully Responsive</h5>-->
-<!--                                <p class="pe-3">Regardless of the screen size, the website content will naturally fit-->
-<!--                                    the given resolution.</p>-->
-<!--                            </div>-->
-<!--                        </div>-->
+                        <!--                        <div class="col-md-6 mt-3">-->
+                        <!--                            <div class="info">-->
+                        <!--                                <i class="material-icons text-gradient text-primary text-3xl">devices</i>-->
+                        <!--                                <h5 class="font-weight-bolder mt-3">Fully Responsive</h5>-->
+                        <!--                                <p class="pe-3">Regardless of the screen size, the website content will naturally fit-->
+                        <!--                                    the given resolution.</p>-->
+                        <!--                            </div>-->
+                        <!--                        </div>-->
                     </div>
                 </div>
             </div>
         </div>
-        </section>
+    </section>
     <!-- -------- START Content Presentation Docs ------- -->
     <div class="container mt-sm-5">
         <div class="page-header py-6 py-md-5 my-sm-3 mb-3 border-radius-xl"
@@ -165,17 +172,33 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 ms-lg-5">
-                        <h4 class="text-white">Built by students for student</h4>
-                        <h1 class="text-white">Studlend is a platform built by students for student</h1>
-                        <p class="lead text-white opacity-8">Are you looking for a loan to pay your tuition fees or
-                            other students facilities?
-                            click here , create your account and get your interest rates
-                            Loans up to 10000 $ at maximum 7 % APR.</p>
-                        <a href="{% url 'login' %}"
-                           class="text-white icon-move-right">
-                            Ask for a loan
-                            <i class="fas fa-arrow-right text-sm ms-1"></i>
-                        </a>
+                        <h1 class="text-white">Current Investment</h1>
+                        <p class="lead text-white opacity-8">
+                        <div class="card-body px-0">
+                            <p>
+                                Amount needed : {{loan.amount}} Euros
+                            </p>
+                            <p>
+                                Rate of interest : {{loan.rate}} %
+                            </p>
+                            <p>
+                                Loan duration : {{loan.loan_duration}} Year(s)
+                            </p>
+                            <p>
+                                Student name : {{loan.student}}
+                            </p>
+                            <p>
+                                Percent already invested : {{loan.percentage_invest}} %
+                            </p>
+                        </div>
+                        <form class="text-white icon-move-right" action="{% url 'login' %}" id="contact-form"
+                              method="post">{% csrf_token %}
+                            <input type="hidden" name="student_name" id="name" value="{{loan.student}}">
+                            <input type="hidden" name="student_rate" id="rate" value="{{loan.rate}}">
+                            <input type="hidden" name="student_duration" id="duration" value="{{loan.loan_duration}}">
+                            <input type="hidden" name="student_amount" id="amount" value="{{loan.amount}}">
+                            <button type="submit" class="btn btn-primary">Invest</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -204,7 +227,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <p class="mt-4">"Great application. Helped me finance my studies and much more. I highly recommend for students
+                            <p class="mt-4">"Great application. Helped me finance my studies and much more. I highly
+                                recommend for students
                                 who want to get a loan efficiently."</p>
                             <div class="rating mt-3">
                                 <i class="fas fa-star"></i>
@@ -227,7 +251,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <p class="mt-4 text-white">"Great application. Helped me finance my studies and much more. I highly recommend for students
+                            <p class="mt-4 text-white">"Great application. Helped me finance my studies and much more. I
+                                highly recommend for students
                                 who want to get a loan efficiently.!"</p>
                             <div class="rating mt-3">
                                 <i class="fas fa-star text-white"></i>
@@ -250,7 +275,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <p class="mt-4">"Great application. Helped me finance my studies and much more. I highly recommend for students
+                            <p class="mt-4">"Great application. Helped me finance my studies and much more. I highly
+                                recommend for students
                                 who want to get a loan efficiently."</p>
                             <div class="rating mt-3">
                                 <i class="fas fa-star"></i>
@@ -263,25 +289,25 @@
                     </div>
                 </div>
             </div>
-<!--            <hr class="horizontal dark my-5">-->
-<!--            <div class="row">-->
-<!--                <div class="col-lg-2 col-md-4 col-6 ms-auto">-->
-<!--                    <img class="w-100 opacity-6" src="/static/assets/img/logos/gray-logos/logo-apple.svg" alt="Logo">-->
-<!--                </div>-->
-<!--                <div class="col-lg-2 col-md-4 col-6">-->
-<!--                    <img class="w-100 opacity-6" src="/static/assets/img/logos/gray-logos/logo-facebook.svg" alt="Logo">-->
-<!--                </div>-->
-<!--                <div class="col-lg-2 col-md-4 col-6">-->
-<!--                    <img class="w-100 opacity-6" src="/static/assets/img/logos/gray-logos/logo-nasa.svg" alt="Logo">-->
-<!--                </div>-->
-<!--                <div class="col-lg-2 col-md-4 col-6 ms-lg-0 ms-md-auto">-->
-<!--                    <img class="w-100 opacity-6" src="/static/assets/img/logos/gray-logos/logo-vodafone.svg" alt="Logo">-->
-<!--                </div>-->
-<!--                <div class="col-lg-2 col-md-4 col-6 me-md-auto mx-md-0 mx-auto">-->
-<!--                    <img class="w-100 opacity-6" src="/static/assets/img/logos/gray-logos/logo-digitalocean.svg"-->
-<!--                         alt="Logo">-->
-<!--                </div>-->
-<!--            </div>-->
+            <!--            <hr class="horizontal dark my-5">-->
+            <!--            <div class="row">-->
+            <!--                <div class="col-lg-2 col-md-4 col-6 ms-auto">-->
+            <!--                    <img class="w-100 opacity-6" src="/static/assets/img/logos/gray-logos/logo-apple.svg" alt="Logo">-->
+            <!--                </div>-->
+            <!--                <div class="col-lg-2 col-md-4 col-6">-->
+            <!--                    <img class="w-100 opacity-6" src="/static/assets/img/logos/gray-logos/logo-facebook.svg" alt="Logo">-->
+            <!--                </div>-->
+            <!--                <div class="col-lg-2 col-md-4 col-6">-->
+            <!--                    <img class="w-100 opacity-6" src="/static/assets/img/logos/gray-logos/logo-nasa.svg" alt="Logo">-->
+            <!--                </div>-->
+            <!--                <div class="col-lg-2 col-md-4 col-6 ms-lg-0 ms-md-auto">-->
+            <!--                    <img class="w-100 opacity-6" src="/static/assets/img/logos/gray-logos/logo-vodafone.svg" alt="Logo">-->
+            <!--                </div>-->
+            <!--                <div class="col-lg-2 col-md-4 col-6 me-md-auto mx-md-0 mx-auto">-->
+            <!--                    <img class="w-100 opacity-6" src="/static/assets/img/logos/gray-logos/logo-digitalocean.svg"-->
+            <!--                         alt="Logo">-->
+            <!--                </div>-->
+            <!--            </div>-->
         </div>
     </section>
     <section class="py-sm-7" id="download-soft-ui">
@@ -294,7 +320,8 @@
                         <h3 class="text-white mb-0">Do you want to become</h3>
                         <h3 class="text-white">An investor?</h3>
                         <p class="text-white mb-5">Cause if you do, it can be a great business. Hit the button below to
-                            navigate to Investment page where you can fill the form to become one of us. We've got your back!</p>
+                            navigate to Investment page where you can fill the form to become one of us. We've got your
+                            back!</p>
                         <a href="{% url 'login' %}"
                            class="btn btn-primary btn-lg mb-3 mb-sm-0">Invest</a>
                     </div>
@@ -303,30 +330,30 @@
         </div>
     </section>
     <!-- -------   START PRE-FOOTER 2 - simple social line w/ title & 3 buttons    -------- -->
-<!--    <div class="py-5">-->
-<!--        <div class="container">-->
-<!--            <div class="row">-->
-<!--                <div class="col-lg-5 ms-auto">-->
-<!--                    <h4 class="mb-1">Thank you for your support!</h4>-->
-<!--                    <p class="lead mb-0">We deliver the best web products</p>-->
-<!--                </div>-->
-<!--                <div class="col-lg-5 me-lg-auto my-lg-auto text-lg-end mt-5">-->
-<!--                    <a href="#"-->
-<!--                       class="btn btn-twitter mb-0 me-2">-->
-<!--                        <i class="fab fa-twitter me-1"></i> Tweet-->
-<!--                    </a>-->
-<!--                    <a href="#"-->
-<!--                       class="btn btn-facebook mb-0 me-2">-->
-<!--                        <i class="fab fa-facebook-square me-1"></i> Share-->
-<!--                    </a>-->
-<!--                    <a href="#"-->
-<!--                       class="btn btn-pinterest mb-0 me-2">-->
-<!--                        <i class="fab fa-pinterest me-1"></i> Pin it-->
-<!--                    </a>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
+    <!--    <div class="py-5">-->
+    <!--        <div class="container">-->
+    <!--            <div class="row">-->
+    <!--                <div class="col-lg-5 ms-auto">-->
+    <!--                    <h4 class="mb-1">Thank you for your support!</h4>-->
+    <!--                    <p class="lead mb-0">We deliver the best web products</p>-->
+    <!--                </div>-->
+    <!--                <div class="col-lg-5 me-lg-auto my-lg-auto text-lg-end mt-5">-->
+    <!--                    <a href="#"-->
+    <!--                       class="btn btn-twitter mb-0 me-2">-->
+    <!--                        <i class="fab fa-twitter me-1"></i> Tweet-->
+    <!--                    </a>-->
+    <!--                    <a href="#"-->
+    <!--                       class="btn btn-facebook mb-0 me-2">-->
+    <!--                        <i class="fab fa-facebook-square me-1"></i> Share-->
+    <!--                    </a>-->
+    <!--                    <a href="#"-->
+    <!--                       class="btn btn-pinterest mb-0 me-2">-->
+    <!--                        <i class="fab fa-pinterest me-1"></i> Pin it-->
+    <!--                    </a>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
     <!-- -------   END PRE-FOOTER 2 - simple social line w/ title & 3 buttons    -------- -->
 </div>
 
@@ -516,6 +543,10 @@
         console.error(countUp2.error);
       };
     }
+
+
+
+
 
 </script>
 </body>

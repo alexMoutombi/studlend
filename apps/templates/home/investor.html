@@ -1,0 +1,116 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Template Page {% endblock %}
+
+{% block body_class %} index-page {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+{% include 'includes/navigation-transparent.html' %}
+
+<div class="page-header min-vh-80"
+     style="background-image: url('https://unctad.org/sites/default/files/2020-08/Investment-Trends_800x450.jpg')">
+    <span class="mask bg-gradient-dark opacity-6"></span>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <div class="text-center">
+                    <h1 class="text-white">INVESTMENT OPPORTUNITIES</h1>
+                    <h3 class="text-white">Maximize Your Returns</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
+    <div class="container">
+        <div class="section text-center">
+            <h2 class="title">SHORT TO LONG-TERM INVESTMENT</h2>
+            <p class="pe-5 text-justify">we build for you your investment portfolio in order to guarantee you a maximum
+                return according to your investment. thanks to our loan allocation algorithm and the cooperation of
+                European banks, your investment is safe with us. Gain up to 5 % annual return on your investment
+                are you an Investor? click on the link below to create you profile.
+            </p>
+            <!--            <a href="{% url 'login' %}" class="text-info text-sm icon-move-right">Invest-->
+            <!--                <i class="fas fa-arrow-right text-xs ms-1"></i>-->
+            <!--            </a>-->
+            <div class="container my-auto col-lg-12 col-md-8 col-12 mx-auto">
+                <div class="card-header px-4 py-sm-5 py-3">
+                    <h2>Let's Go!</h2>
+                    <p class="lead">We will evaluate your return after you submited these
+                        informations.</p>
+                </div>
+                <form class="p-3" action="{% url 'invest' %}" id="contact-form" method="post">{% csrf_token %}
+                    <div class="card-body pt-1">
+                        <div class="row">
+                            <!--                            begin-->
+                            <!--                            intermediate-->
+                            <section class="py-sm-7" id="download-soft-ui">
+                                <div class="bg-gradient-dark position-relative m-3 border-radius-xl overflow-hidden">
+                                    <img src="/static/assets/img/shapes/waves-white.svg" alt="pattern-lines"
+                                         class="position-absolute start-0 top-md-0 w-100 opacity-2">
+                                    <div class="container py-7 postion-relative z-index-2 position-relative">
+                                        <div class="row">
+                                            <div class="col-md-7 mx-auto text-center">
+                                                <h3 class="text-white">Student's parameters</h3>
+                                                <div class="card-body px-0 text-white">
+                                                    <p>
+                                                        Amount needed : {{loan.amount}} Euros
+                                                    </p>
+                                                    <p>
+                                                        Rate of interest : {{loan.rate}} %
+                                                    </p>
+                                                    <p>
+                                                        Loan duration : {{loan.loan_duration}} Year(s)
+                                                    </p>
+                                                    <p>
+                                                        Student name : {{loan.student}}
+                                                    </p>
+                                                    <p>
+                                                        Percent already invested : {{loan.percentage_invest}} %
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <!--                            end-->
+                            <div class="col-md-12 pe-2 mb-3">
+                                <div class="input-group input-group-static mb-4">
+                                    <label for="percentage">Percentage</label>
+                                    <select id="percentage" name="percentage" class="form-control">
+                                        <option value="10">10%</option>
+                                        <option value="20">20%</option>
+                                        <option value="30">30%</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-12 pe-2 mb-3">
+                                <input type="hidden" name="student_name" id="name" value="{{loan.student}}">
+                                <input type="hidden" name="student_rate" id="rate" value="{{loan.rate}}">
+                                <input type="hidden" name="student_duration" id="duration"
+                                       value="{{loan.loan_duration}}">
+                                <input type="hidden" name="student_amount" id="amount" value="{{loan.amount}}">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 text-end ms-auto">
+                                <button type="submit" class="btn bg-gradient-info mb-0">Submit</button>
+                                <!--                        <button type="submit" class="btn bg-gradient-info mb-0">Submit</button>-->
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

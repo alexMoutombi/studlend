@@ -18,7 +18,8 @@ SECRET_KEY = config('SECRET_KEY', default='S#perS3crEt_1122')
 DEBUG = config('DEBUG', default=True, cast=bool)
 
 # load production server from .env
-ALLOWED_HOSTS        = ['localhost', 'localhost:85', '127.0.0.1', config('SERVER', default='127.0.0.1'), '4606-129-0-205-31.eu.ngrok.io']
+ALLOWED_HOSTS = ['localhost', 'localhost:85', '127.0.0.1', config('SERVER', default='127.0.0.1'),
+                 '7170-41-202-207-3.in.ngrok.io']
 CSRF_TRUSTED_ORIGINS = ['http://localhost:85', 'http://127.0.0.1', 'https://' + config('SERVER', default='127.0.0.1')]
 
 # Application definition
@@ -30,7 +31,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps.home'  # Enable the inner home (home)
+    'reset_migrations',
+    'apps.home',  # Enable the inner home (home)
 ]
 
 MIDDLEWARE = [
@@ -121,6 +123,10 @@ STATICFILES_DIRS = (
     os.path.join(CORE_DIR, 'apps/static'),
 )
 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# AUTH_USER_MODEL = 'apps_home.Person'
+# AUTH_USER_MODEL = 'apps_home.Investor'
 
 #############################################################
 #############################################################

@@ -74,7 +74,6 @@
                 </div>
             </div>
             <div class="row">
-                {% for loan in loans %}
                 <div class="col-lg-3 col-sm-6">
                     <div class="card card-plain">
                         <div class="card-header p-0 position-relative">
@@ -85,23 +84,16 @@
                         </div>
                         <div class="card-body px-0">
                             <h5>
-                                <a href="javascript:;" class="text-dark font-weight-bold">Amount needed:
-                                    {{loan.amount}}</a>
+                                <a href="javascript:;" class="text-dark font-weight-bold">Amount needed: {{amount}}</a>
                             </h5>
                             <p>
-                                Rate of interest :{{loan.rate}} %
-                            </p>
-                            <p>
-                                Laon duration :{{loan.loan_duration}} Years
-                            </p>
-                            <p>
-                                Laon Investment :{{loan.percentage_invest}} %
+                                Rate of interest :{{rate}}
                             </p>
                             <p>
                                 Total amount :{{total_amount}}
                             </p>
                             <p>
-                                Student name :{{name}}
+                                Loan duration : {{loan_duration}}
                             </p>
                             <a href="javascript:;" class="text-info text-sm icon-move-right">Read More
                                 <i class="fas fa-arrow-right text-xs ms-1"></i>
@@ -109,7 +101,60 @@
                         </div>
                     </div>
                 </div>
-                {% endfor %}
+                <div class="col-lg-3 col-sm-6">
+                    <div class="card card-plain">
+                        <div class="card-header p-0 position-relative">
+                            <a class="d-block blur-shadow-image">
+                                <img src="/static/assets/img/examples/testimonial-6-3.jpg" alt="img-blur-shadow"
+                                     class="img-fluid shadow border-radius-lg" loading="lazy">
+                            </a>
+                        </div>
+                        <div class="card-body px-0">
+                            <h5>
+                                <a href="javascript:;" class="text-dark font-weight-bold">Amount needed :</a>
+                            </h5>
+                            <p>
+                                Rate of interest :
+                            </p>
+                            <p>
+                                Total amount :
+                            </p>
+                            <p>
+                                Loan duration :
+                            </p>
+                            <a href="javascript:;" class="text-info text-sm icon-move-right">Read More
+                                <i class="fas fa-arrow-right text-xs ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="card card-plain">
+                        <div class="card-header p-0 position-relative">
+                            <a class="d-block blur-shadow-image">
+                                <img src="/static/assets/img/examples/blog-9-4.jpg" alt="img-blur-shadow"
+                                     class="img-fluid shadow border-radius-lg" loading="lazy">
+                            </a>
+                        </div>
+                        <div class="card-body px-0">
+                            <h5>
+                                <a href="javascript:;" class="text-dark font-weight-bold">Amount needed :</a>
+                            </h5>
+                            <p>
+                                Rate of interest :
+                            </p>
+                            <p>
+                                Total amount :
+                            </p>
+                            <p>
+                                Loan duration :
+                            </p>
+                            <a href="javascript:;" class="text-info text-sm icon-move-right">Read More
+                                <i class="fas fa-arrow-right text-xs ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-lg-3 col-md-12 col-12">
                     <div class="card card-blog card-background cursor-pointer">
                         <div class="full-background"
@@ -202,64 +247,64 @@
                                         informations.</p>
                                 </div>
                                 <div class="card-body pt-1">
-                                    <div class="row">
-                                        <div class="col-md-12 pe-2 mb-3">
-                                            <div class="input-group input-group-static mb-4">
-                                                <label>My Age</label>
-                                                <input type="number" name="age" class="form-control"
-                                                       placeholder="My Age">
+                                        <div class="row">
+                                            <div class="col-md-12 pe-2 mb-3">
+                                                <div class="input-group input-group-static mb-4">
+                                                    <label>My Age</label>
+                                                    <input type="number" name="age" class="form-control"
+                                                           placeholder="My Age">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 pe-2 mb-3">
+                                                <div class="input-group input-group-static mb-4">
+                                                    <label>My school rank</label>
+                                                    <input type="number" name="school_rank" class="form-control"
+                                                           placeholder="My school rank">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 pe-2 mb-3">
+                                                <div class="input-group input-group-static mb-4">
+                                                    <label>Amount needed ($)</label>
+                                                    <input type="number" name="amount" class="form-control"
+                                                           placeholder="Amount needed ($)">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 pe-2 mb-3">
+                                                <div class="input-group input-group-static mb-4">
+                                                    <label>Loan duration (years)</label>
+                                                    <input type="number" name="loan_duration" class="form-control"
+                                                           placeholder="Loan duration (years)">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 pe-2 mb-3">
+                                                <div class="input-group input-group-static mb-4">
+                                                    <label>Incoming parents</label>
+                                                    <input type="number" name="incoming_parent" class="form-control"
+                                                           placeholder="Incoming parents">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 pe-2 mb-3">
+                                                <div class="input-group input-group-static mb-4">
+                                                    <label>Number of familly workers</label>
+                                                    <input type="number" name="mber_familly_worker" class="form-control"
+                                                           placeholder="Number of familly workers">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 pe-2 mb-3">
+                                                <div class="input-group input-group-static mb-4">
+                                                    <label>Internship number</label>
+                                                    <input type="number" name="nber_internship" class="form-control"
+                                                           placeholder="Internship number">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 pe-2 mb-3">
+                                                <div class="input-group input-group-static mb-4">
+                                                    <label>Job number</label>
+                                                    <input type="number" name="nber_jobs" class="form-control"
+                                                           placeholder="Job number">
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-12 pe-2 mb-3">
-                                            <div class="input-group input-group-static mb-4">
-                                                <label>My school rank</label>
-                                                <input type="number" name="school_rank" class="form-control"
-                                                       placeholder="My school rank">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 pe-2 mb-3">
-                                            <div class="input-group input-group-static mb-4">
-                                                <label>Amount needed ($)</label>
-                                                <input type="number" name="amount" class="form-control"
-                                                       placeholder="Amount needed ($)">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 pe-2 mb-3">
-                                            <div class="input-group input-group-static mb-4">
-                                                <label>Loan duration (years)</label>
-                                                <input type="number" name="loan_duration" class="form-control"
-                                                       placeholder="Loan duration (years)">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 pe-2 mb-3">
-                                            <div class="input-group input-group-static mb-4">
-                                                <label>Incoming parents</label>
-                                                <input type="number" name="incoming_parent" class="form-control"
-                                                       placeholder="Incoming parents">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 pe-2 mb-3">
-                                            <div class="input-group input-group-static mb-4">
-                                                <label>Number of familly workers</label>
-                                                <input type="number" name="mber_familly_worker" class="form-control"
-                                                       placeholder="Number of familly workers">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 pe-2 mb-3">
-                                            <div class="input-group input-group-static mb-4">
-                                                <label>Internship number</label>
-                                                <input type="number" name="nber_internship" class="form-control"
-                                                       placeholder="Internship number">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 pe-2 mb-3">
-                                            <div class="input-group input-group-static mb-4">
-                                                <label>Job number</label>
-                                                <input type="number" name="nber_jobs" class="form-control"
-                                                       placeholder="Job number">
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="row">
                                         <div class="col-md-6 text-end ms-auto">
                                             <button type="submit" class="btn bg-gradient-info mb-0">Submit</button>

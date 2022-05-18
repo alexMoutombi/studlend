@@ -34,61 +34,51 @@
                 European banks, your investment is safe with us. Gain up to 5 % annual return on your investment
                 are you an Investor? click on the link below to create you profile.
             </p>
-            <a href="{% url 'login' %}" class="text-info text-sm icon-move-right">Invest
-                 <i class="fas fa-arrow-right text-xs ms-1"></i>
-            </a>
-<!--            <h2 class="title">Fill the form</h2>-->
-<!--            <div class="container my-auto">-->
-<!--                <div class="row">-->
-<!--                    <div class="col-lg-6 col-md-8 col-12 mx-auto">-->
-<!--                        <div class="card z-index-0 fadeIn3 fadeInBottom">-->
-<!--                            <div class="card-body">-->
-<!--                                <form role="form" class="text-start">-->
-<!--                                    <div class="input-group input-group-outline my-3">-->
-<!--                                        <label class="form-label">Name</label>-->
-<!--                                        <input class="form-control" type="text">-->
-<!--                                    </div>-->
-<!--                                    <div class="input-group input-group-outline my-3">-->
-<!--                                        <label class="form-label">Surname</label>-->
-<!--                                        <input class="form-control" type="text">-->
-<!--                                    </div>-->
-<!--                                    <div class="input-group input-group-outline my-3">-->
-<!--                                        <label class="form-label">Age</label>-->
-<!--                                        <input class="form-control" type="number">-->
-<!--                                    </div>-->
-<!--                                    <div class="input-group input-group-outline my-3">-->
-<!--                                        <label class="form-label">Town</label>-->
-<!--                                        <input class="form-control" type="text">-->
-<!--                                    </div>-->
-<!--                                    <div class="input-group input-group-outline my-3">-->
-<!--                                        <label class="form-label">Email</label>-->
-<!--                                        <input type="email" class="form-control">-->
-<!--                                    </div>-->
-<!--                                    <div class="input-group input-group-outline my-3">-->
-<!--                                        <label class="form-label">Phone number</label>-->
-<!--                                        <input type="phone" class="form-control">-->
-<!--                                    </div>-->
-<!--                                    <div class="input-group input-group-outline my-3">-->
-<!--                                        <label class="form-label">Ethnicity</label>-->
-<!--                                        <input class="form-control" type="text">-->
-<!--                                    </div>-->
-<!--                                    <div class="input-group input-group-outline my-3">-->
-<!--                                        <label class="form-label">Amount to invest(in Euro)</label>-->
-<!--                                        <input type="number" class="form-control">-->
-<!--                                    </div>-->
-<!--                                    <div class="input-group input-group-outline my-3">-->
-<!--                                        <label class="form-label">Duration of investment(in month(s))</label>-->
-<!--                                        <input type="number" class="form-control">-->
-<!--                                    </div>-->
-<!--                                    <div class="text-center col-lg-4 mx-auto">-->
-<!--                                        <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2">Invest-->
-<!--                                        </button>-->
-<!--                                    </div>-->
-<!--                                </form>-->
+<!--            <a href="{% url 'login' %}" class="text-info text-sm icon-move-right">Invest-->
+<!--                <i class="fas fa-arrow-right text-xs ms-1"></i>-->
+<!--            </a>-->
+<!--            <div class="container my-auto col-lg-6 col-md-8 col-12 mx-auto">-->
+<!--                <form class="p-3" action="{% url 'invest' %}" id="contact-form" method="post">{% csrf_token %}-->
+<!--                    <div class="card-header px-4 py-sm-5 py-3">-->
+<!--                        <h2>Let's Go!</h2>-->
+<!--                        <p class="lead">We will evaluate your return after you submited these-->
+<!--                            informations.</p>-->
+<!--                    </div>-->
+<!--                    <div class="card-body pt-1">-->
+<!--                        <div class="row">-->
+<!--                            <div class="col-md-12 pe-2 mb-3">-->
+<!--                                <div class="input-group input-group-static mb-4">-->
+<!--                                    <label for="percentage">Percentage</label>-->
+<!--                                    <select id="percentage" name="percentage" class="form-control">-->
+<!--                                        <option value="10">10%</option>-->
+<!--                                        <option value="20">20%</option>-->
+<!--                                        <option value="30">30%</option>-->
+<!--                                    </select>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-12 pe-2 mb-3">-->
+<!--                                <div class="input-group input-group-static mb-4">-->
+<!--                                    <label>Student Amount ($)</label>-->
+<!--                                    <input type="number" name="student_amount" class="form-control"-->
+<!--                                           placeholder="Student Amount">-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-12 pe-2 mb-3">-->
+<!--                                <div class="input-group input-group-static mb-4">-->
+<!--                                    <label>Student loan duration (years)</label>-->
+<!--                                    <input type="number" name="student_duration" class="form-control"-->
+<!--                                           placeholder="Student loan duration">-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="row">-->
+<!--                            <div class="col-md-6 text-end ms-auto">-->
+<!--                                <button type="submit" class="btn bg-gradient-info mb-0">Submit</button>-->
+<!--                                &lt;!&ndash;                        <button type="submit" class="btn bg-gradient-info mb-0">Submit</button>&ndash;&gt;-->
 <!--                            </div>-->
 <!--                        </div>-->
 <!--                    </div>-->
-<!--                </div>-->
+<!--                </form>-->
 <!--            </div>-->
         </div>
     </div>

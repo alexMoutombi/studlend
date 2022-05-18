@@ -7,6 +7,7 @@ Copyright (c) 2019 - present AppSeed.us
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from .forms import LoginForm, SignUpForm
+from ..home.models import Person
 
 
 def login_view(request):
@@ -19,16 +20,29 @@ def login_view(request):
         if form.is_valid():
             username = form.cleaned_data.get("username")
             password = form.cleaned_data.get("password")
-            user = authenticate(username=username, password=password)
-            if user is not None:
-                login(request, user)
-                return redirect("/profile.html")
+            # email = form.cleaned_data.get("email")
+            person = authenticate(username=username, password=password)
+            # print(Person.objects.all())
+            if person is not None:
+                if username in ['alexmyar', 'Armand', 'Cedric', 'Dave', 'Cosmos', 'Giovani']:
+                    login(request, person)
+                    print(person)
+                    return redirect("/investor.html")
+                elif username in ["Allan", 'Kevin', 'Loic', 'Gaetan', 'Joel']:
+                    login(request, person)
+                    print(person)
+                    return redirect("/loan.html")
+                else:
+                    login(request, person)
+                    print(person)
+                    return redirect("/admin_profile.html")
             else:
                 msg = 'Invalid credentials'
         else:
             msg = 'Error validating the form'
 
     return render(request, "accounts/login.html", {"form": form, "msg": msg})
+
 
 def register_user(request):
     msg = None
@@ -40,8 +54,10 @@ def register_user(request):
             form.save()
             profile = form.cleaned_data.get("profile")
             username = form.cleaned_data.get("username")
+            email = form.cleaned_data.get("email")
             raw_password = form.cleaned_data.get("password1")
-            user = authenticate(username=username, password=raw_password)
+            user = authenticate(username=username, email=email, profile=profile, password=raw_password)
+            print(profile)
 
             msg = 'User created - please login.'
             success = True
