@@ -26,11 +26,11 @@
                     <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="About Us">About Us</p>
                   </a>
                 </li>
-                <li class="nav-item ms-lg-auto">
+                <!--li class="nav-item ms-lg-auto">
                   <a href="/newsandupdates.html" class="dropdown-item border-radius-md">
                     <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="News and Updates">News & Updates</p>
                   </a>
-                </li>
+                </li-->
                 <li class="nav-item ms-lg-auto">
                   <a href="/investments.html" class="dropdown-item border-radius-md">
                     <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Investments">Investments</p>
@@ -42,17 +42,19 @@
                   </a>
                 </li>
                 <li class="nav-item ms-lg-auto">
-                  <a class="nav-link nav-link-icon me-2"
-                      href="{% url 'login' %}">
-                    <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="SignIn">SignIn</p>
-                  </a>
-                </li>
-                <li class="nav-item ms-lg-auto">
                   <a href="/contact-us.html" class="dropdown-item border-radius-md">
                     <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Contact Us">Contact Us</p>
                   </a>
                 </li>
 
+                {% if not request.user.is_authenticated %}
+                <li class="nav-item ms-lg-auto">
+                  <a class="nav-link nav-link-icon me-2"
+                      href="{% url 'login' %}">
+                    <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="SignIn">SignIn</p>
+                  </a>
+                </li>
+                {% endif %}
                 {% if request.user.is_authenticated %}
                   <li class="nav-item ms-lg-auto">
                     <a class="nav-link nav-link-icon me-2"

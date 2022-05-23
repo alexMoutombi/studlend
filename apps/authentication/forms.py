@@ -27,45 +27,61 @@ class LoginForm(forms.Form):
 
 class SignUpForm(UserCreationForm):
     PROFILE_CHOICES = [
-        ('STUDENT', 'Student'),
-        ('INVESTOR', 'Investor'),
-        ('ADMIN', 'Administrateur'),
+        ('2', 'Student'),
+        ('1', 'Investor'),
     ]
     profile = forms.ChoiceField(
-        required=True,
-        # widget=forms.CheckboxSelectMultiple,
-        #     required=True,
-        choices=PROFILE_CHOICES,
+        widget=forms.Select(
+            attrs={
+                "placeholder": "Profile",
+                "class": "form-select"
+            }
+        ),
+        choices=PROFILE_CHOICES
     )
+    firstname = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "First name",
+                "class": "form-control"
+            }
+    ))
+    lastname = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "Last name",
+                "class": "form-control"
+            }
+    ))
     username = forms.CharField(
         widget=forms.TextInput(
             attrs={
                 "placeholder": "Username",
                 "class": "form-control"
             }
-        ))
+    ))
     email = forms.EmailField(
         widget=forms.EmailInput(
             attrs={
                 "placeholder": "Email",
                 "class": "form-control"
             }
-        ))
+    ))
     password1 = forms.CharField(
         widget=forms.PasswordInput(
             attrs={
                 "placeholder": "Password",
                 "class": "form-control"
             }
-        ))
+    ))
     password2 = forms.CharField(
         widget=forms.PasswordInput(
             attrs={
                 "placeholder": "Password check",
                 "class": "form-control"
             }
-        ))
+    ))
 
     class Meta:
         model = User
-        fields = ('profile', 'username', 'email', 'password1', 'password2')
+        fields = ('profile', 'firstname', 'lastname', 'username', 'email', 'password1', 'password2')

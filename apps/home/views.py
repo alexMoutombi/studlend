@@ -213,7 +213,8 @@ def invest(request, loan_id=None):
 
 def loan_home_page():
     try:
-        loan = Loan.objects.all()[0]  # exclude(percentage_invest=100). .aggregate(Max('percentage_invest'))
+        loans = Loan.objects.all()  # exclude(percentage_invest=100). .aggregate(Max('percentage_invest'))
+        loan = loans[0] if len(loans) > 0 else None
     except ObjectDoesNotExist:
         loan = None
 

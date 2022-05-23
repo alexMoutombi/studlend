@@ -4,6 +4,7 @@ Copyright (c) 2019 - present AppSeed.us
 """
 
 # Create your views here.
+from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from .forms import LoginForm, SignUpForm
@@ -51,13 +52,19 @@ def register_user(request):
     if request.method == "POST":
         form = SignUpForm(request.POST)
         if form.is_valid():
-            form.save()
+            # enregistrement de l'utilisateur
+            user = User.objects.create_user(
+                first_name=form.cleaned_data.get("firstname"),
+                last_name=form.cleaned_data.get("lastname"),
+                username=form.cleaned_data.get("username"),
+                email=form.cleaned_data.get("email"), 
+                password=form.cleaned_data.get("password1")
+                )
+            
+            # enregistrement du profil
             profile = form.cleaned_data.get("profile")
-            username = form.cleaned_data.get("username")
-            email = form.cleaned_data.get("email")
-            raw_password = form.cleaned_data.get("password1")
-            user = authenticate(username=username, email=email, profile=profile, password=raw_password)
-            print(profile)
+            user.groups.set([int(profile)])
+            user.save()
 
             msg = 'User created - please login.'
             success = True
