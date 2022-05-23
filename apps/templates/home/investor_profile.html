@@ -31,33 +31,13 @@
                     <div class="row py-5">
                         <div class="col-lg-7 col-md-7 z-index-2 position-relative px-md-2 px-sm-5 mx-auto">
                             <div class="d-flex justify-content-between align-items-center mb-2">
-                                <h3 class="mb-0">{{user.get_username}}</h3>
+                                <h3 class="mb-0">{{user.first_name}} {{user.last_name}}</h3>
                                 <div class="d-block">
                                     <button type="button" class="btn btn-sm btn-outline-info text-nowrap mb-0">Update
                                         Infos
                                     </button>
                                 </div>
                             </div>
-                            <!--                <div class="row mb-4">-->
-                            <!--                  <div class="col-auto">-->
-                            <!--                    <span class="h6">323</span>-->
-                            <!--                    <span>Posts</span>-->
-                            <!--                  </div>-->
-                            <!--                  <div class="col-auto">-->
-                            <!--                    <span class="h6">3.5k</span>-->
-                            <!--                    <span>Followers</span>-->
-                            <!--                  </div>-->
-                            <!--                  <div class="col-auto">-->
-                            <!--                    <span class="h6">260</span>-->
-                            <!--                    <span>Following</span>-->
-                            <!--                  </div>-->
-                            <!--                </div>-->
-                            <p class="text-lg mb-0">
-                                A good person. <br><a href="javascript:;" class="text-info icon-move-right">More about
-                                me
-                                <i class="fas fa-arrow-right text-sm ms-1"></i>
-                            </a>
-                            </p>
                         </div>
                     </div>
                 </div>
@@ -74,6 +54,10 @@
                 </div>
             </div>
             <div class="row">
+                {% if not investments %}
+                No investments
+                {% endif %}
+
                 {% for investment in investments %}
                 <div class="col-lg-3 col-sm-6">
                     <div class="card card-plain">
@@ -109,20 +93,6 @@
                     </div>
                 </div>
                 {% endfor %}
-                <div class="col-lg-3 col-md-12 col-12">
-                    <div class="card card-blog card-background cursor-pointer">
-                        <div class="full-background"
-                             style="background-image: url('https://images.unsplash.com/photo-1553729459-efe14ef6055d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80')"
-                             loading="lazy"></div>
-                        <div class="card-body">
-                            <div class="content-left text-start my-auto py-4">
-                                <h2 class="card-title text-white">Flexible work hours</h2>
-                                <p class="card-description text-white">Rather than worrying about switching offices
-                                    every couple years, you stay in the same place.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>

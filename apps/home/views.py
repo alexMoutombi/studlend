@@ -44,7 +44,7 @@ def investments(request):
     html_template = loader.get_template('home/investor_profile.html')
     return HttpResponse(html_template.render(context, request))
 
-
+@login_required(login_url='login')
 def investor_page(request):
     # student_loan = request.session.get('student_loan', None)
     # print(student_loan)
@@ -55,13 +55,13 @@ def investor_page(request):
     return HttpResponse(html_template.render(context, request))
 
 
+@login_required(login_url='login')
 def profile(request):
-    loans = loan_profile_page()
-    print(loans)
-    context = {'loans': loans}
+    if request.user.groups.all().filter(name = 'Investor').exists() :
+        return redirect('investor_profile')
 
-    html_template = loader.get_template('home/profile.html')
-    return HttpResponse(html_template.render(context, request))
+    loans = loan_profile_page()
+    return render(request, 'home/profile.html', context = {'loans': loans})
 
 
 # @login_required(login_url="/login/")
@@ -174,33 +174,34 @@ def loan(request):
                            'total_amount': total_amount, 'loans': loans})
 
 
-def invest(request, loan_id=None):
+def invest(request):
     global amount_student, name, surname, investment_duration, percentage, rate_student
-    print(request.method == 'POST')
     if request.method == 'POST':
-        # name = request.user.get_username
-        # surname = request.user.get_username
-        percentage = request.POST['percentage']
-        amount_student = request.POST['student_amount']
-        investment_duration = request.POST['student_duration']
-        rate_student = request.POST['student_rate']
+        loan = Loan.objects.get(pk = int(request.POST['id']))
+        percentage = 10
+        amount_student = loan.amount
+        investment_duration = loan.loan_duration
+        rate_student = loan.rate
         invest_date = datetime.now()
 
     amount_invest = float(percentage / 100) * float(amount_student)
     rendement = rate_student
     montant_attendu = float(amount_invest) * float(pow(1 + rendement, int(investment_duration)))
     profit = montant_attendu - amount_invest
+
     investment = Investment.objects.create(amount_invest=int(amount_invest),
                                            investment_duration=int(investment_duration), rendement=int(rendement),
-                                           montant_attendu=int(montant_attendu), profit=int(profit))
+                                           montant_attendu=int(montant_attendu), profit=int(profit),
+                                           loan_id=int(request.POST['id']))
 
-    print("Alex Ok")
     investment.save()
     print(investment)
 
-    return render(request, 'home/investor_profile.html',
-                  context={'amount_invest': amount_invest, 'investment_duration': investment_duration,
-                           'rendement': rendement, 'montant_attendu': montant_attendu, 'profit': profit})
+    return redirect('investor_profile')
+
+    #return render(request, 'home/investor_profile.html',
+    #              context={'amount_invest': amount_invest, 'investment_duration': investment_duration,
+    #                       'rendement': rendement, 'montant_attendu': montant_attendu, 'profit': profit})
 
     # return redirect('home/investor_profile.html')
 

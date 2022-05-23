@@ -27,15 +27,12 @@ def login_view(request):
             if person is not None:
                 if username in ['alexmyar', 'Armand', 'Cedric', 'Dave', 'Cosmos', 'Giovani']:
                     login(request, person)
-                    print(person)
                     return redirect("/investor.html")
                 elif username in ["Allan", 'Kevin', 'Loic', 'Gaetan', 'Joel']:
                     login(request, person)
-                    print(person)
                     return redirect("/loan.html")
                 else:
                     login(request, person)
-                    print(person)
                     return redirect("/admin_profile.html")
             else:
                 msg = 'Invalid credentials'

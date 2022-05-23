@@ -34,6 +34,25 @@
                 European banks, your investment is safe with us. Gain up to 5 % annual return on your investment
                 are you an Investor? click on the link below to create you profile.
             </p>
+        </div>
+        <div class="row">
+        {% for loan in loans %}
+            <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="card card-body">
+                    <h5 class="card-title">Loan {{loan.amount}} Euros</h5>
+                    <p>Student: </p>
+                    <p>Rate of interest : {{loan.rate}} </p>
+                    <p>Duration: {{loan.loan_duration}} years </p>
+                    <form action="{% url 'invest' %}" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="id" value="{{loan.id}}">
+                        <button type="submit" class="btn btn-primary">Invest</button>
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+
 <!--            <a href="{% url 'login' %}" class="text-info text-sm icon-move-right">Invest-->
 <!--                <i class="fas fa-arrow-right text-xs ms-1"></i>-->
 <!--            </a>-->
@@ -80,7 +99,7 @@
 <!--                    </div>-->
 <!--                </form>-->
 <!--            </div>-->
-        </div>
+        
     </div>
 </div>
 

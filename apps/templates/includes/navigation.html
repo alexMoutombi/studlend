@@ -32,7 +32,7 @@
                   </a>
                 </li-->
                 <li class="nav-item ms-lg-auto">
-                  <a href="/investments.html" class="dropdown-item border-radius-md">
+                  <a href="{% url 'investments' %}" class="dropdown-item border-radius-md">
                     <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Investments">Investments</p>
                   </a>
                 </li>
@@ -57,6 +57,13 @@
                 {% endif %}
 
                 {% if request.user.is_authenticated %}
+                  <li class="nav-item ms-lg-auto">
+                    <a class="nav-link nav-link-icon me-2"
+                      href="{% url 'profile' %}">
+                      <i class="fa fa-person me-1"></i>
+                      <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="My account">My account</p>
+                    </a>
+                  </li>
                   <li class="nav-item ms-lg-auto">
                     <a class="nav-link nav-link-icon me-2" 
                       href="{% url 'logout' %}">
